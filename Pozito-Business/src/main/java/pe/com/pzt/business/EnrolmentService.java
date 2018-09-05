@@ -1,9 +1,9 @@
 package pe.com.pzt.business;
 
-import pe.com.pzt.domain.Usuario;
+import pe.com.pzt.domain.Enrolment;
 
 public interface EnrolmentService {
 
-	public Usuario obtenerUsuario(String codigoUsuario);
+	public Enrolment obtenerEnrolment(String idFacebook);
 
 }

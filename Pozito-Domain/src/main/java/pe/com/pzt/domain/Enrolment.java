@@ -12,26 +12,48 @@ public class Enrolment {
 
 	@Id
 	@Basic(optional = false)
-	@Column(name = "c_codusu")
-	private String codigoUsuario;
+	@Column(name = "id_facebook")
+	private String idFacebook;
 
-	@Column(name = "c_nomusu")
-	private String nombreUsuario;
+	@Column(name = "celular")
+	private String celular;
 
-	public String getCodigoUsuario() {
-		return codigoUsuario;
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "dni")
+	private String dni;
+
+	public String getIdFacebook() {
+		return idFacebook;
 	}
 
-	public void setCodigoUsuario(String codigoUsuario) {
-		this.codigoUsuario = codigoUsuario;
+	public void setIdFacebook(String idFacebook) {
+		this.idFacebook = idFacebook;
 	}
 
-	public String getNombreUsuario() {
-		return nombreUsuario;
+	public String getCelular() {
+		return celular;
 	}
 
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 }

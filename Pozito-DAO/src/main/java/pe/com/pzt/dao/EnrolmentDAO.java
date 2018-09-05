@@ -1,6 +1,6 @@
 package pe.com.pzt.dao;
 
-import pe.com.pzt.domain.Usuario;
+import pe.com.pzt.domain.Enrolment;
 
 public interface EnrolmentDAO {
 

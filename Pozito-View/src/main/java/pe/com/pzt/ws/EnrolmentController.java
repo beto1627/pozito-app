@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import pe.com.pzt.business.EnrolmentService;
 import pe.com.pzt.business.UsuarioService;
-import pe.com.pzt.domain.Usuario;
+import pe.com.pzt.commons.ResponseRS;
+import pe.com.pzt.domain.Enrolment;
 
 @RestController
 public class EnrolmentController {
@@ -19,15 +21,15 @@ public class EnrolmentController {
 	private final AtomicLong counter = new AtomicLong();
 
 	@Autowired
-	private UsuarioService usuarioService;
+	private EnrolmentService enrolmentService;
 
-	@GetMapping("/enrolment")
-	public Enrolment greeting(@RequestParam(value = "idFacebook") String idFacebook) {
-		Usuario usuario = usuarioService.obtenerUsuario(name);
-		String nombre = usuario != null ? usuario.getNombreUsuario() : name;
+	@GetMapping("/enrolment/{idFacebook}")
+	public ResponseRS greeting(@RequestParam(value = "idFacebook") String idFacebook) {
+		Enrolment enrolment = enrolmentService.obtenerEnrolment(idFacebook);
 
-		Enrolment enrolment = new Enrolment();
-		return enrolment;
+		ResponseRS responseRS = new ResponseRS();
+		responseRS.setCode(enrolment != null ? "S" : "N");
+		return responseRS;
 	}
 
 	@PostMapping("/enrolment")

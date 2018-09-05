@@ -6,20 +6,19 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import pe.com.pzt.dao.UsuarioDAO;
-import pe.com.pzt.domain.Usuario;
+import pe.com.pzt.dao.EnrolmentDAO;
+import pe.com.pzt.domain.Enrolment;
 
 @Repository
-public class EnrolmentDAOImpl implements UsuarioDAO {
+public class EnrolmentDAOImpl implements EnrolmentDAO {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
-	public Usuario obtenerUsuario(String codigoUsuario) {
+	public Enrolment obtenerEnrolment(String idFacebook) {
 		try {
-			Usuario usuario = entityManager.find(Usuario.class, codigoUsuario);
-			return usuario;
+			return entityManager.find(Enrolment.class, idFacebook);
 		} catch (NoResultException e) {
 			return null;
 		} catch (RuntimeException e) {
