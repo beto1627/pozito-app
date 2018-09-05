@@ -1,5 +1,5 @@
 package pe.com.pzt.commons;
-
+ 
 public class ResponseRS {
 
 	private String code = "";
