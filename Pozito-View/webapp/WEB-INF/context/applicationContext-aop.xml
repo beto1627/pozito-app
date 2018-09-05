@@ -8,7 +8,7 @@
   <bean id="timingAdvice" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor" />
   <aop:config>
     <aop:advisor
-      pointcut="execution(* pe.com.pzt.view.*.*(..)) or execution(* pe.com.pzt.business.*.*(..)) or execution(* pe.com.pzt.dao.*.*(..))"
+      pointcut="execution(* pe.com.pzt.ws.*.*(..)) or execution(* pe.com.pzt.business.*.*(..)) or execution(* pe.com.pzt.dao.*.*(..))"
       advice-ref="timingAdvice" />
   </aop:config>
 

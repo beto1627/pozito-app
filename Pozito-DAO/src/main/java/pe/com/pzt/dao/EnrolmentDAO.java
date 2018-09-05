@@ -6,4 +6,6 @@ public interface EnrolmentDAO {
 
 	Enrolment obtenerEnrolment(String idFacebook);
 
+	void registrarEnrolment(Enrolment enrolment);
+
 }

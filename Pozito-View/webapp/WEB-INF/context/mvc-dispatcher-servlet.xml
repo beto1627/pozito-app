@@ -33,6 +33,6 @@
   <beans:bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
   </beans:bean>
 
-  <context:component-scan base-package="pe.com.pzt.view.controllers" />
+  <context:component-scan base-package="pe.com.pzt.ws" />
 
 </beans:beans>

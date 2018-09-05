@@ -25,4 +25,13 @@ public class EnrolmentDAOImpl implements EnrolmentDAO {
 			throw e;
 		}
 	}
+
+	@Override
+	public void registrarEnrolment(Enrolment enrolment) {
+		try {
+			entityManager.persist(enrolment);
+		} catch (RuntimeException e) {
+			throw e;
+		}
+	}
 }

@@ -4,6 +4,8 @@ import pe.com.pzt.domain.Enrolment;
 
 public interface EnrolmentService {
 
-	public Enrolment obtenerEnrolment(String idFacebook);
+	Enrolment obtenerEnrolment(String idFacebook);
+
+	void registrarEnrolment(Enrolment enrolment);
 
 }
