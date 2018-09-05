@@ -7,12 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "enrolamiento")
+@Table(name = "enrolment")
 public class Enrolment {
 
 	@Id
 	@Basic(optional = false)
-	@Column(name = "id_facebook")
+	@Column(name = "facebook_id")
 	private String idFacebook;
 
 	@Column(name = "celular")
@@ -21,7 +21,7 @@ public class Enrolment {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "dni")
+	@Column(name = "doi")
 	private String dni;
 
 	public String getIdFacebook() {

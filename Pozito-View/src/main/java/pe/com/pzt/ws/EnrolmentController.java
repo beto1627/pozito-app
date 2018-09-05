@@ -28,7 +28,10 @@ public class EnrolmentController {
 
 	@PostMapping("/enrolment")
 	public ResponseRS postEnrolment(@RequestBody Enrolment enrolment) {
-		enrolmentService.registrarEnrolment(enrolment);
+		try {
+			enrolmentService.registrarEnrolment(enrolment);
+		} catch (Exception e) {
+		}
 		ResponseRS responseRS = new ResponseRS();
 		responseRS.setCode(enrolment != null ? "S" : "N");
 		return responseRS;
