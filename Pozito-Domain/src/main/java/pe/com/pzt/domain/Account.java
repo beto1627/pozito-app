@@ -14,5 +14,8 @@ public class Account {
 	@Basic(optional = false)
 	@Column(name = "FACEBOOK_ID")
 	private String idFacebook;
+	
+	@Column(name = "ACCOUNT_ID")
+	private String idAccount;
 
 }

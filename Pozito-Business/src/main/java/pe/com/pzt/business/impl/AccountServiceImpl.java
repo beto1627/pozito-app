@@ -1,5 +1,7 @@
 package pe.com.pzt.business.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,14 +17,19 @@ public class AccountServiceImpl implements AccountService {
 	private AccountDAO AccountDAO;
 
 	@Override
-	public Account obtenerAccount(String idFacebook) {
-		return AccountDAO.obtenerAccount(idFacebook);
+	public Account getAccount(String idAccount) {
+		return AccountDAO.getAccount(idAccount);
+	}
+	
+	@Override
+	public List<Account> getAllAccountsByIdFacebook(String idFacebook) {
+		return AccountDAO.getAllAccountsByIdFacebook(idFacebook);
 	}
 
 	@Override
 	@Transactional
-	public void registrarAccount(Account Account) {
-		AccountDAO.registrarAccount(Account);
+	public void registrarAccount(Account account) {
+		AccountDAO.createAccount(account);
 	}
 
 }

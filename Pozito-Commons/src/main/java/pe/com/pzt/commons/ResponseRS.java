@@ -4,6 +4,7 @@ public class ResponseRS {
 
 	private String code = "";
 	private String message = "";
+	private Object result;
 
 	public String getCode() {
 		return code;
@@ -20,5 +21,15 @@ public class ResponseRS {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+	public Object getResult() {
+		return result;
+	}
+
+	public void setResult(Object result) {
+		this.result = result;
+	}
+	
+	
 
 }
