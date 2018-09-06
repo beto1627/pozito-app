@@ -23,6 +23,8 @@ public class EnrolmentController {
 
 		ResponseRS responseRS = new ResponseRS();
 		responseRS.setCode(enrolment != null ? "S" : "N");
+		responseRS.setResult(enrolment);
+
 		return responseRS;
 	}
 
@@ -34,6 +36,8 @@ public class EnrolmentController {
 		}
 		ResponseRS responseRS = new ResponseRS();
 		responseRS.setCode(enrolment != null ? "S" : "N");
+		responseRS.setResult(enrolment);
+
 		return responseRS;
 	}
 

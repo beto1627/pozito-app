@@ -6,7 +6,9 @@ import pe.com.pzt.domain.Pozo;
 
 public interface PozoService {
 
-	public List<Pozo> getPozosByIdFacebook(String codigoPozo);
+	Pozo getPozosByIdPozo(String idPozo);
+
+	public List<Pozo> getPozosByIdFacebook(String idFacebook, String tipo);
 
 	void registrarPozo(Pozo pozo);
 

@@ -24,6 +24,12 @@ public class Enrolment {
 	@Column(name = "doi")
 	private String dni;
 
+	@Column(name = "FULL_NAME")
+	private String fullName;
+
+	@Column(name = "REPUTATION")
+	private Integer reputation;
+
 	public String getIdFacebook() {
 		return idFacebook;
 	}
@@ -54,6 +60,22 @@ public class Enrolment {
 
 	public void setDni(String dni) {
 		this.dni = dni;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public Integer getReputation() {
+		return reputation;
+	}
+
+	public void setReputation(Integer reputation) {
+		this.reputation = reputation;
 	}
 
 }

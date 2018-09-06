@@ -20,9 +20,34 @@ public class PozoDAOImpl implements PozoDAO {
 	private EntityManager entityManager;
 
 	@Override
+	public Pozo getPozosByIdPozo(String idPozo) {
+		try {
+			return entityManager.find(Pozo.class, idPozo);
+		} catch (NoResultException e) {
+			return new Pozo();
+		} catch (RuntimeException e) {
+			throw e;
+		}
+	}
+
+	@Override
 	public List<Pozo> getPozosByIdFacebook(String idFacebook) {
 		try {
 			Query query = entityManager.createQuery("SELECT p FROM Pozo p WHERE idFacebook = :idFacebook ");
+			query.setParameter("idFacebook", idFacebook);
+			return (List<Pozo>) query.getResultList();
+		} catch (NoResultException e) {
+			return new ArrayList<>();
+		} catch (RuntimeException e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public List<Pozo> getPozosByIdFacebookPozero(String idFacebook) {
+		try {
+			Query query = entityManager.createQuery("SELECT p FROM Pozo p, Pozero po "
+					+ "								  WHERE p.idPozo = po.idPozo AND po.idFacebook = :idFacebook");
 			query.setParameter("idFacebook", idFacebook);
 			return (List<Pozo>) query.getResultList();
 		} catch (NoResultException e) {

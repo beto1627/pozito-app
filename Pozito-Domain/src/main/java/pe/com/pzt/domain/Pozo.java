@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "POZO")
@@ -35,6 +36,9 @@ public class Pozo {
 
 	@Column(name = "STATE")
 	private String estado;
+
+	@Transient
+	private String estadoDescripcion;
 
 	public String getIdPozo() {
 		return idPozo;
@@ -98,6 +102,14 @@ public class Pozo {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public String getEstadoDescripcion() {
+		return estadoDescripcion;
+	}
+
+	public void setEstadoDescripcion(String estadoDescripcion) {
+		this.estadoDescripcion = estadoDescripcion;
 	}
 
 }
