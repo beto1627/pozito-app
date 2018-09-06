@@ -1,8 +1,13 @@
 package pe.com.pzt.dao.dummy.Impl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -43,8 +48,41 @@ public class BankAccountDAODummyImpl implements BankAccountDAODummy {
 			return new AccountDTO();
 		} catch (RuntimeException e) {
 			throw e;
+		} catch (Exception e) {
+			throw e;
 		}
 		
 	}
 
+	@Override
+	public List<AccountDTO> getBankAccounts(String idUser) {
+		try {
+			
+			Query query = entityManager.createQuery("SELECT e FROM BankAccountDummy e where codClie = :idUser");
+			query.setParameter("idUser",idUser);
+			List<BankAccountDummy> lst = (List<BankAccountDummy>) query.getResultList();
+		    
+			List<AccountDTO> lstAccountDTO = new ArrayList<AccountDTO>();
+			AccountDTO accountDTO = null;
+			BankAccountDummy bankAccountDummy = null;
+			Iterator<BankAccountDummy> it = lst.iterator();
+			while (it.hasNext()) {
+			    accountDTO = new AccountDTO();
+			    bankAccountDummy = (BankAccountDummy)it.next();
+				accountDTO.setAmount(bankAccountDummy.getAmount());
+				accountDTO.setCurrency(bankAccountDummy.getCurrency());
+				accountDTO.setIdAccount(bankAccountDummy.getCuenta());
+				accountDTO.setIdCustomer(bankAccountDummy.getCodClie());
+				lstAccountDTO.add(accountDTO);
+			}
+			
+			return (List<AccountDTO>) lstAccountDTO;
+		} catch (NoResultException e) {
+			return new ArrayList<>();
+		} catch (RuntimeException e) {
+			throw e;
+		}
+	}
+
+	
 }

@@ -1,5 +1,8 @@
 package pe.com.pzt.client.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.NoResultException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +36,17 @@ public class BankAccountClientImpl implements BankAccountClient {
 			throw e;
 		}
 	}
+
+	@Override
+	public List<AccountDTO> getAccounts(String idUser) {
+		try {			
+			return bankAccountDAODummy.getBankAccounts(idUser);
+		} catch (NoResultException e) {
+			return new ArrayList<>();
+		} catch (RuntimeException e) {
+			throw e;
+		}
+	}
+	
+	
 }

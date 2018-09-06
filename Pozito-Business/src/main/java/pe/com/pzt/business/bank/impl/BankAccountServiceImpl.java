@@ -1,5 +1,7 @@
 package pe.com.pzt.business.bank.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,4 +25,10 @@ public class BankAccountServiceImpl implements BankAccountService {
 		return bankAccountClient.getAccount(accountId);
 	}
 
+	@Override
+	public List<AccountDTO> getAllAccountsByIdUser(String idUser) {
+		return bankAccountClient.getAccounts(idUser);
+	}
+
+	
 }

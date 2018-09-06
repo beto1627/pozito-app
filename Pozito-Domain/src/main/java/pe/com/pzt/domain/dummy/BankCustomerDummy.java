@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "D_CUSTOMER")
-public class CustomerDummy {
+public class BankCustomerDummy {
 
 	@Id
 	@Basic(optional = false)
