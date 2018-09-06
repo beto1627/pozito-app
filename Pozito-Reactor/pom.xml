@@ -12,6 +12,7 @@
 		<module>../Pozito-Commons</module>
 		<module>../Pozito-Domain</module>
 		<module>../Pozito-DAO</module>
+		<module>../Pozito-Client</module>
 		<module>../Pozito-Business</module>
 		<!-- module>../Pozito-View</module -->
 	</modules>
