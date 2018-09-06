@@ -22,7 +22,7 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public List<BankAccount> getAllAccountsByIdFacebook(String idFacebook) {
 		try {
-			Query query = entityManager.createQuery("SELECT e FROM Account e where idFacebook = :idFacebook");
+			Query query = entityManager.createQuery("SELECT e FROM BankAccount e where idFacebook = :idFacebook");
 			query.setParameter("idFacebook",idFacebook);
 		    return (List<BankAccount>) query.getResultList();
 		} catch (NoResultException e) {
@@ -45,9 +45,9 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public void createAccount(BankAccount Account) {
+	public void createAccount(BankAccount account) {
 		try {
-			entityManager.persist(Account);
+			entityManager.persist(account);
 		} catch (RuntimeException e) {
 			throw e;
 		}
