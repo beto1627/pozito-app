@@ -8,28 +8,28 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pe.com.pzt.business.AccountService;
 import pe.com.pzt.dao.AccountDAO;
-import pe.com.pzt.domain.Account;
+import pe.com.pzt.domain.BankAccount;
 
 @Service
 public class AccountServiceImpl implements AccountService {
 
 	@Autowired
-	private AccountDAO AccountDAO;
+	private AccountDAO accountDAO;
 
 	@Override
-	public Account getAccount(String idAccount) {
-		return AccountDAO.getAccount(idAccount);
+	public BankAccount getAccount(String idAccount) {
+		return accountDAO.getAccount(idAccount);
 	}
 	
 	@Override
-	public List<Account> getAllAccountsByIdFacebook(String idFacebook) {
-		return AccountDAO.getAllAccountsByIdFacebook(idFacebook);
+	public List<BankAccount> getAllAccountsByIdFacebook(String idFacebook) {
+		return accountDAO.getAllAccountsByIdFacebook(idFacebook);
 	}
 
 	@Override
 	@Transactional
-	public void registrarAccount(Account account) {
-		AccountDAO.createAccount(account);
+	public void registrarAccount(BankAccount account) {
+		accountDAO.createAccount(account);
 	}
 
 }

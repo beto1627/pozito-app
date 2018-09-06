@@ -2,14 +2,14 @@ package pe.com.pzt.business;
 
 import java.util.List;
 
-import pe.com.pzt.domain.Account;
+import pe.com.pzt.domain.BankAccount;
 
 public interface AccountService {
 
-	Account getAccount(String idAccount);
+	public BankAccount getAccount(String idAccount);
 	
-	List<Account> getAllAccountsByIdFacebook(String idFacebook);
+	public List<BankAccount> getAllAccountsByIdFacebook(String idFacebook);
 
-	void registrarAccount(Account account);
+	public void registrarAccount(BankAccount account);
 
 }
