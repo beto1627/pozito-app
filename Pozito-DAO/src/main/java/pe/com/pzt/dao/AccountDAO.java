@@ -2,14 +2,14 @@ package pe.com.pzt.dao;
 
 import java.util.List;
 
-import pe.com.pzt.domain.Account;
+import pe.com.pzt.domain.BankAccount;
 
 public interface AccountDAO {
 	
-	Account getAccount(String idAccount);
+	BankAccount getAccount(String idAccount);
 
-	void createAccount(Account account);
+	void createAccount(BankAccount account);
 
-	List<Account> getAllAccountsByIdFacebook(String idFacebook);
+	List<BankAccount> getAllAccountsByIdFacebook(String idFacebook);
 
 }

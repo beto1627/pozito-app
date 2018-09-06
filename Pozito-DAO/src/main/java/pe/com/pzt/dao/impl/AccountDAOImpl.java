@@ -11,7 +11,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import pe.com.pzt.dao.AccountDAO;
-import pe.com.pzt.domain.Account;
+import pe.com.pzt.domain.BankAccount;
 
 @Repository
 public class AccountDAOImpl implements AccountDAO {
@@ -20,13 +20,13 @@ public class AccountDAOImpl implements AccountDAO {
 	private EntityManager entityManager;
 
 	@Override
-	public List<Account> getAllAccountsByIdFacebook(String idFacebook) {
+	public List<BankAccount> getAllAccountsByIdFacebook(String idFacebook) {
 		try {
-			Query query = entityManager.createQuery("SELECT e FROM Accounts where idFacebook = :idFacebook");
+			Query query = entityManager.createQuery("SELECT e FROM Account e where idFacebook = :idFacebook");
 			query.setParameter("idFacebook",idFacebook);
-		    return (List<Account>) query.getResultList();
+		    return (List<BankAccount>) query.getResultList();
 		} catch (NoResultException e) {
-			return new ArrayList<Account>();
+			return new ArrayList<>();
 		} catch (RuntimeException e) {
 			throw e;
 		}
@@ -34,18 +34,18 @@ public class AccountDAOImpl implements AccountDAO {
 	
 	
 	@Override
-	public Account getAccount(String idAccount) {
+	public BankAccount getAccount(String idAccount) {
 		try {
-			return entityManager.find(Account.class, idAccount);
+			return entityManager.find(BankAccount.class, idAccount);
 		} catch (NoResultException e) {
-			return null;
+			return new BankAccount();
 		} catch (RuntimeException e) {
 			throw e;
 		}
 	}
 
 	@Override
-	public void createAccount(Account Account) {
+	public void createAccount(BankAccount Account) {
 		try {
 			entityManager.persist(Account);
 		} catch (RuntimeException e) {
